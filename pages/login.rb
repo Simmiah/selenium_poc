@@ -17,7 +17,7 @@ class Login < BasePage
 	end
 
 	def login_displayed?
-		is_displayed?(LOGIN_FORM)
+		wait_for(10) { is_displayed?(LOGIN_FORM) }
 	end
 
 
