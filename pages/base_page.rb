@@ -16,8 +16,16 @@ class BasePage
 		@driver.find_element(locator)
 	end
 
+	def type(text, locator)
+		find(locator).send_keys(text)
+	end
+
 	def click(locator)
 		find(locator).click
+	end
+
+	def submit(locator)
+		find(locator).submit
 	end
 
 	def is_displayed?(locator)
