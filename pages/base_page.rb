@@ -4,8 +4,19 @@ require 'selenium-webdriver'
 
 class BasePage
 
+	EMAIL_ADDRESS = { id: 'email' }
+	PASSWORD = { id: 'passwd' }
+	SIGN_IN = { id: 'SubmitLogin' }
+
 	def initialize(driver)
 		@driver = driver
+	end
+
+	def login #use before each login required test
+		@driver.visit('/signin')
+		@driver.type('rosalyn.goh@gmail.com', EMAIL_ADDRESS)
+		@driver.type('Test@123', PASSWORD)
+		@driver.submit(SIGN_IN)
 	end
 
 	def visit(url_path)

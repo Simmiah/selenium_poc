@@ -28,6 +28,4 @@ describe 'Login' do
 		@login.failure_message_present?
 	end
 
-
-
 end
