@@ -12,6 +12,8 @@ RSpec.configure do |config|
 			Selenium::WebDriver::Chrome::Service.executable_path = File.join(Dir.pwd, 'vendor/chromedriver')
 			@driver = Selenium::WebDriver.for :chrome
 		end
+		# default to using implicit wait
+		@driver.manage.timeouts.implicit_wait = 10 #seconds
 	end
 
 	config.after(:each) do

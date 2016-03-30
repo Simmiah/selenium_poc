@@ -28,4 +28,9 @@ describe 'Login' do
 		@login.failure_message_present?
 	end
 
+	it 'succeeds with reusable login' do
+		@login.login
+		@login.login_displayed?
+	end
+
 end

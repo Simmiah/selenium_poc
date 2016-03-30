@@ -10,7 +10,7 @@ class Login < BasePage
 	PASSWORD = { id: 'passwd' }
 	SIGN_IN = { id: 'SubmitLogin' }
 	MY_ACCOUNT = { id: 'my-account' }
-	#INVALID = { xpath: "//li[contains(text(),'Invalid Password')]" } 
+	#INVALID = { xpath: "//li[contains(text(),'Invalid Password')]" } # contains not supported in selenium webdriver
 	INVALID = { css: 'div.alert-danger' }
 
 	def initialize(driver)

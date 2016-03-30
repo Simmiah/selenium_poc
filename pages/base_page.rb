@@ -4,6 +4,7 @@ require 'selenium-webdriver'
 
 class BasePage
 
+	LOGIN_BUTTON = { css: 'a.login' }
 	EMAIL_ADDRESS = { id: 'email' }
 	PASSWORD = { id: 'passwd' }
 	SIGN_IN = { id: 'SubmitLogin' }
@@ -13,10 +14,11 @@ class BasePage
 	end
 
 	def login #use before each login required test
-		@driver.visit('/signin')
-		@driver.type('rosalyn.goh@gmail.com', EMAIL_ADDRESS)
-		@driver.type('Test@123', PASSWORD)
-		@driver.submit(SIGN_IN)
+		@driver.get(ENV['public'] + ENV['base_url'] + '')
+		@driver.find_element(LOGIN_BUTTON).click
+		@driver.find_element(EMAIL_ADDRESS).send_keys('rosalyn.goh@gmail.com')
+		@driver.find_element(PASSWORD).send_keys('Test@123')
+		@driver.find_element(SIGN_IN).submit
 	end
 
 	def visit(url_path)
