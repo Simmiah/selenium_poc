@@ -49,8 +49,4 @@ class BasePage
 		end
 	end
 
-	def wait_for(seconds = 15)
-		Selenium::WebDriver::Wait.new(timeout: seconds).until { yield }
-	end
-
 end

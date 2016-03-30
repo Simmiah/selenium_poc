@@ -23,7 +23,7 @@ class Login < BasePage
 	end
 
 	def login_displayed?
-		wait_for(10) { is_displayed?(LOGIN_FORM) }
+		is_displayed?(LOGIN_FORM)
 	end
 
 	def enter_login(email_address, password)
@@ -33,11 +33,11 @@ class Login < BasePage
 	end
 
 	def success_message_present?
-		wait_for(10) { is_displayed?(MY_ACCOUNT) }
+		is_displayed?(MY_ACCOUNT)
 	end
 
 	def failure_message_present?
-		wait_for(10) { is_displayed?(INVALID) }
+		is_displayed?(INVALID)
 	end
 
 end
