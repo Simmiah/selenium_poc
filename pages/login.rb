@@ -18,7 +18,7 @@ class Login < BasePage
 		visit('')
 	end
 
-	def click_login
+	def click_login # could change this to submit form
 		click(LOGIN_BUTTON)
 	end
 

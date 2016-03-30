@@ -21,7 +21,7 @@ describe 'Login' do
 		@login.success_message_present?
 	end
 
-	it 'fails' do
+	it 'fails with bad password' do
 		@login.click_login
 		@login.login_displayed?
 		@login.enter_login('rosalyn.goh@gmail.com', 'bad')
