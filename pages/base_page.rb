@@ -61,4 +61,8 @@ class BasePage
 		text_to_compare == text(locator)
 	end
 
+	def wait_for(seconds = 15)
+		Selenium::WebDriver::Wait.new(timeout: seconds).until { yield }
+	end
+
 end

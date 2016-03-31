@@ -21,11 +21,11 @@ class CreateAccount < BasePage
 	end
 
 	def duplicate_email_displayed?
-		text_match(DUPLICATE_EMAIL, INVALID)
+		wait_for(10) {text_match(DUPLICATE_EMAIL, INVALID)}
 	end
 
 	def invalid_email_displayed?
-		text_match(INVALID_EMAIL, INVALID)
+		wait_for(10) {text_match(INVALID_EMAIL, INVALID)}
 	end
 
 end
