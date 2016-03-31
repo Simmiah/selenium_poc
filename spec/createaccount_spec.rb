@@ -9,9 +9,14 @@ describe 'Create Account' do
 		@createaccount = CreateAccount.new(@driver)
 	end
 
-	it 'fails with existing email' do
-		@createaccount.enter_email('test@test.com')
-		@createaccount.create_account
+	it 'fails with duplicate email' do
+		@createaccount.create_account('test@test.com')
+		@createaccount.duplicate_email_displayed?
+	end
+
+	it 'fails with invalid email' do
+		@createaccount.create_account('test')
+		@createaccount.invalid_email_displayed?
 	end
 
 end

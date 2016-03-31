@@ -4,10 +4,14 @@ require 'selenium-webdriver'
 
 class BasePage
 
+	# reusable login
 	LOGIN_BUTTON = { css: 'a.login' }
 	EMAIL_ADDRESS = { id: 'email' }
 	PASSWORD = { id: 'passwd' }
 	SIGN_IN = { id: 'SubmitLogin' }
+	# credentials
+	EMAIL = 'rosalyn.goh@gmail.com'
+	PASS = 'Test@123'
 
 	def initialize(driver)
 		@driver = driver
@@ -16,8 +20,8 @@ class BasePage
 	def login #use before each login required test
 		@driver.get(ENV['public'] + ENV['base_url'] + '')
 		@driver.find_element(LOGIN_BUTTON).click
-		@driver.find_element(EMAIL_ADDRESS).send_keys('rosalyn.goh@gmail.com')
-		@driver.find_element(PASSWORD).send_keys('Test@123')
+		@driver.find_element(EMAIL_ADDRESS).send_keys(EMAIL)
+		@driver.find_element(PASSWORD).send_keys(PASS)
 		@driver.find_element(SIGN_IN).submit
 	end
 
@@ -47,6 +51,14 @@ class BasePage
 		rescue Selenium::WebDriver::Error::NoSuchElementError
 			false
 		end
+	end
+
+	def text(locator)
+		find(locator).text
+	end
+
+	def text_match(text_to_compare, locator)
+		text_to_compare == text(locator)
 	end
 
 end
