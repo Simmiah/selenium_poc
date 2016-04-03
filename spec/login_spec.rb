@@ -30,7 +30,7 @@ describe 'Login' do
 
 	it 'succeeds with reusable login' do
 		@login.login
-		@login.login_displayed?
+		@login.success_message_present?
 	end
 
 end

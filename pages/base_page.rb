@@ -22,7 +22,7 @@ class BasePage
 		@driver.find_element(LOGIN_BUTTON).click
 		@driver.find_element(EMAIL_ADDRESS).send_keys(EMAIL)
 		@driver.find_element(PASSWORD).send_keys(PASS)
-		@driver.find_element(SIGN_IN).submit
+		@driver.find_element(SIGN_IN).click
 	end
 
 	def visit(url_path)
@@ -59,6 +59,10 @@ class BasePage
 
 	def text_match(text_to_compare, locator)
 		text_to_compare == text(locator)
+	end
+
+	def url_is?(url)
+		@driver.(current_url)
 	end
 
 	def wait_for(seconds = 15)
