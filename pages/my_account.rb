@@ -4,17 +4,15 @@ require_relative 'base_page'
 
 class MyAccount < BasePage
 
-	HOME_ICON_LINK = { css: '[title~=Return][title~=to][title~=home]' }
+	HOME_ICON_LINK = { css: '[title~=Return][title~=to][title~=Home]' }
 	HOME_ICON = { css: 'i.icon-home' }
 	HOME_LINK = { css: '[title=Home' }
 	HOME_URL = 'http://automationpractice.com/index.php'
-	MY_ACCOUNT = { css: 'a.account' }
 	ORDER_HISTORY = { css: '[title=Orders]' }
 	MY_CREDIT = { css: '[title~=Credit]' }
 	MY_ADDRESSES = { css: '[title=Addresses]' }
 	MY_INFORMATION = { css: '[title=Information]' }
 	MY_WISHLISTS = { css: '[title~=wishlists]' }
-
 
 	def initialize(driver)
 		super
@@ -26,10 +24,6 @@ class MyAccount < BasePage
 
 	def click_home_link
 		click(HOME_LINK)
-	end
-
-	def click_my_account
-		click(MY_ACCOUNT)
 	end
 
 	def on_home_url?

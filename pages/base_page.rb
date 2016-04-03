@@ -62,7 +62,7 @@ class BasePage
 	end
 
 	def url_is?(url)
-		@driver.(current_url)
+		url == @driver.current_url
 	end
 
 	def wait_for(seconds = 15)
