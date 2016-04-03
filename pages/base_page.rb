@@ -53,7 +53,7 @@ class BasePage
 		find(locator).text
 	end
 
-	def text_match(text_to_compare, locator)
+	def text_is?(text_to_compare, locator)
 		text_to_compare == text(locator)
 	end
 
