@@ -41,6 +41,10 @@ class BasePage
 		find(locator).click
 	end
 
+	def submit(locator)
+		find(locator).submit
+	end
+
 	def is_displayed?(locator)
 		begin
 			find(locator).displayed?
