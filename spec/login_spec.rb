@@ -18,19 +18,19 @@ describe 'Login' do
 		@login.click_login
 		@login.login_displayed?
 		@login.enter_login('rosalyn.goh@gmail.com', 'Test@123')
-		@login.success_message_present?
+		@login.myaccount_displayed?
 	end
 
 	it 'fails with bad password' do
 		@login.click_login
 		@login.login_displayed?
 		@login.enter_login('rosalyn.goh@gmail.com', 'bad')
-		@login.failure_message_present?
+		@login.invalid_password_displayed?
 	end
 
 	it 'succeeds with reusable login' do
 		@login.login
-		@login.success_message_present?
+		@login.myaccount_displayed?
 	end
 
 end

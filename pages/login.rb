@@ -10,14 +10,16 @@ class Login < BasePage
 	PASSWORD = { id: 'passwd' }
 	SIGN_IN = { id: 'SubmitLogin' }
 	MY_ACCOUNT = { id: 'my-account' }
-	INVALID = { css: 'div.alert-danger' }
+	INVALID_ALERT = { css: 'div.alert-danger > ol > li' }
+	INVALID_PASSWORD_MESSAGE = 'Invalid password.'
+
 
 	def initialize(driver)
 		super
 		visit('')
 	end
 
-	def click_login # could change this to submit form
+	def click_login
 		click(LOGIN_BUTTON)
 	end
 
@@ -31,12 +33,12 @@ class Login < BasePage
 		click(SIGN_IN)
 	end
 
-	def success_message_present?
+	def myaccount_displayed?
 		wait_for(10) {is_displayed?(MY_ACCOUNT)}
 	end
 
-	def failure_message_present?
-		wait_for(10) {is_displayed?(INVALID)}
+	def invalid_password_displayed?
+		wait_for(10) {text_is?(INVALID_PASSWORD_MESSAGE,INVALID_ALERT)}
 	end
 
 end
