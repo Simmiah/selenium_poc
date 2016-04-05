@@ -38,7 +38,7 @@ class Login < BasePage
 	end
 
 	def invalid_password_displayed?
-		wait_for(10) {text_is?(INVALID_PASSWORD_MESSAGE,INVALID_ALERT)}
+		wait_for(10) {text_includes?(INVALID_PASSWORD_MESSAGE,INVALID_ALERT)}
 	end
 
 end

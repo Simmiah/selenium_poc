@@ -27,7 +27,7 @@ class MyAccount < BasePage
 	end
 
 	def on_home_url?
-		wait_for(10) {url_is?(HOME_URL)}
+		wait_for(10) {url_equals?(HOME_URL)}
 	end
 
 	def home_icon_displayed?

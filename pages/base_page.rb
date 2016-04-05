@@ -10,8 +10,8 @@ class BasePage
 	PASSWORD = { id: 'passwd' }
 	SIGN_IN = { id: 'SubmitLogin' }
 	# credentials
-	EMAIL = 'rosalyn.goh@gmail.com'
-	PASS = 'Test@123'
+	MY_EMAIL = 'rosalyn.goh@gmail.com'
+	MY_PASSWORD = 'Test@123'
 
 	def initialize(driver)
 		@driver = driver
@@ -20,8 +20,8 @@ class BasePage
 	def login #use before each login required test
 		@driver.get(ENV['public'] + ENV['base_url'] + '')
 		@driver.find_element(LOGIN_BUTTON).click
-		@driver.find_element(EMAIL_ADDRESS).send_keys(EMAIL)
-		@driver.find_element(PASSWORD).send_keys(PASS)
+		@driver.find_element(EMAIL_ADDRESS).send_keys(MY_EMAIL)
+		@driver.find_element(PASSWORD).send_keys(MY_PASSWORD)
 		@driver.find_element(SIGN_IN).click
 	end
 
@@ -57,12 +57,13 @@ class BasePage
 		find(locator).text
 	end
 
-	def text_is?(text_to_compare, locator)
-		text_to_compare == text(locator)
+	def text_includes?(text_wanted, locator)
+		text_found = text(locator)
+		text_found.include?(text_wanted)
 	end
 
-	def url_is?(url)
-		url == @driver.current_url
+	def url_equals?(url_wanted)
+		@driver.current_url.eql?(url_wanted)
 	end
 
 	def wait_for(seconds = 15)

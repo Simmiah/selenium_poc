@@ -8,7 +8,9 @@ class Search < BasePage
 	AUTOCOMPLETE_RESULTS = { css: 'div.ac_results' }
 	SEARCH_BUTTON = { css: 'button.button-search' }
 	HEADING_COUNTER = { css: 'span.heading-counter' }
+	NO_RESULTS = '0 results have been found.'
 	SEARCH_ALERT = { css: 'p.alert-warning' }
+	SEARCH_KEYWORD = 'Please enter a search keyword'
 	SEARCH_RESULTS = { css: 'ul.product_list' }
 
 	def initialize(driver)
@@ -30,12 +32,12 @@ class Search < BasePage
 
 	def no_results_displayed?
 		wait_for(10) {is_displayed?(HEADING_COUNTER)}
-		text_is?('0 results have been found.', HEADING_COUNTER)
+		text_includes?(NO_RESULTS, HEADING_COUNTER)
 	end
 
 	def enter_search_message_displayed?
 		wait_for(10) {is_displayed?(SEARCH_ALERT)}
-		text_is?('Please enter a search keyword', SEARCH_ALERT)
+		text_includes?(SEARCH_KEYWORD, SEARCH_ALERT)
 	end
 
 	def search_results_displayed?
