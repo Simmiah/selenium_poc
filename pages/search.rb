@@ -9,6 +9,7 @@ class Search < BasePage
 	SEARCH_BUTTON = { css: 'button.button-search' }
 	HEADING_COUNTER = { css: 'span.heading-counter' }
 	SEARCH_ALERT = { css: 'p.alert-warning' }
+	SEARCH_RESULTS = { css: 'ul.product_list' }
 
 	def initialize(driver)
 		super
@@ -35,6 +36,10 @@ class Search < BasePage
 	def enter_search_message_displayed?
 		wait_for(10) {is_displayed?(SEARCH_ALERT)}
 		text_is?('Please enter a search keyword', SEARCH_ALERT)
+	end
+
+	def search_results_displayed?
+		wait_for(10) {is_displayed?(SEARCH_RESULTS)}
 	end
 
 end
