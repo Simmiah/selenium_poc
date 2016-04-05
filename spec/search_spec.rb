@@ -14,16 +14,6 @@ describe 'Search' do
 		expect(@search.autocomplete_results_displayed?).to be true
 	end
 
-	it 'should not show autocomplete results when entering dr' do
-		@search.search_text('dr')
-		expect(@search.autocomplete_results_displayed?).to be false
-	end
-
-	it 'should not show autocomplete results when entering aaa' do
-		@search.search_text('aaa')
-		expect(@search.autocomplete_results_displayed?).to be false
-	end
-
 	it 'for aaa returns zero results' do
 		@search.search_text('aaa')
 		@search.click_search_button
