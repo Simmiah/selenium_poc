@@ -9,6 +9,12 @@ describe 'Contact Us' do
 		@contactus = ContactUs.new(@driver)
 	end
 
+	it 'should show contact us header' do
+		expect(@contactus.contact_us_header_displayed?).to be true
+	end
+
+	
+
 
 
 end
