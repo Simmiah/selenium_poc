@@ -70,4 +70,12 @@ class BasePage
 		Selenium::WebDriver::Wait.new(timeout: seconds).until { yield }
 	end
 
+	def select(locator)
+		Selenium::WebDriver::Support::Select.new(find(locator))
+	end
+
+	def select_option(select_locator, option_how, option_locator)
+		select(select_locator).select_by(option_how, option_locator)
+	end
+
 end
