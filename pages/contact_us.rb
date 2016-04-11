@@ -6,12 +6,17 @@ class ContactUs < BasePage
 
 	HEADING = { css: 'h1.page-heading' }
 	HEADING_TEXT = 'Customer service - Contact us'
+	INVALID = { css: 'div.alert-danger > ol > li' }
 	# subject heading dropdown
 	SUBJECT_HEADING = { id: 'id_contact' }
 	SUBJECT_HEADING_CHOOSE = '-- Choose --'
 	SUBJECT_HEADING_SERVICE = 'Customer service' 
 	SUBJECT_HEADING_WEBMASTER = 'Webmaster'
 	SUBJECT_HEADING_SPAN = { css: '#uniform-id_contact > span'}
+	# email address
+	EMAIL = { id: 'email' }
+	INVALID_EMAIL = 'Invalid email address.'
+
 
 
 	def initialize(driver)
