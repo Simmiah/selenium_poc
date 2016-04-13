@@ -78,4 +78,12 @@ class BasePage
 		select(select_locator).select_by(option_how, option_locator)
 	end
 
+	def file(filename)
+		file = File.join(Dir.pwd, filename)
+	end
+
+	def upload_file(filename, locator)
+		find(locator).send_keys file(filename)
+	end
+
 end

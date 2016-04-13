@@ -12,9 +12,18 @@ describe 'Contact Us' do
 	it 'should show contact us header' do
 		expect(@contactus.contact_us_header_displayed?).to be true
 	end
+
+	it 'should update the heading dropdown when selected' do
+		@contactus.choose_displayed?
+		@contactus.service_displayed?
+		@contactus.webmaster_displayed?
+	end
 =end
-	it 'should select all subject header options' do
-		expect(@contactus.select_subject_header_updates_span?).to be true
+	it 'should upload a file' do
+		@contactus.select_service
+		@contactus.enter_email('test@test.com')
+		@contactus.attach_file('/files/file.txt')
+		@contactus.send_message
 	end
 
 
