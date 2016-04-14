@@ -23,7 +23,9 @@ describe 'Contact Us' do
 		@contactus.select_service
 		@contactus.enter_email('test@test.com')
 		@contactus.attach_file('/files/file.txt')
+		@contactus.enter_message('test')
 		@contactus.send_message
+		expect(@contactus.success_displayed?)
 	end
 
 

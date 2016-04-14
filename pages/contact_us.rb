@@ -27,6 +27,9 @@ class ContactUs < BasePage
 	MESSAGE = { id: 'message' }
 	# send
 	SEND = { id: 'submitMessage' }
+	# success message
+	SUCCESS = { css: 'p.alert-success' }
+
 
 	def initialize(driver)
 		super
@@ -66,7 +69,11 @@ class ContactUs < BasePage
 	end
 
 	def send_message
-		submit(SEND)
+		click(SEND)
+	end
+
+	def success_displayed?
+		wait_for(10) {is_displayed?(SUCCESS)}
 	end
 
 	def choose_displayed?
@@ -81,12 +88,16 @@ class ContactUs < BasePage
 		wait_for(10) {text_includes?(SUBJECT_HEADING_WEBMASTER, SUBJECT_HEADING_SPAN)}
 	end
 
+	def select_subject_error_displayed?
+		text_includes(INVALID_SUBJECT, INVALID)
+	end
+
 	def invalid_email_displayed?
-		
+		text_includes(INVALID_EMAIL, INVALID)
 	end
 
 	def blank_message_error_displayed?
-
+		text_includes(INVALID_MESSAGE, INVALID)
 	end
 
 end
