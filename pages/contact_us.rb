@@ -5,7 +5,7 @@ require_relative 'base_page'
 class ContactUs < BasePage
 
   HEADING = { css: 'h1.page-heading' }
-  HEADING_TEXT = 'Customer service - Contact us'
+  HEADING_TEXT = 'CUSTOMER SERVICE - CONTACT US'
   # error message
   INVALID = { css: 'div.alert-danger > ol > li' }
   INVALID_EMAIL = 'Invalid email address.'
@@ -89,15 +89,15 @@ class ContactUs < BasePage
   end
 
   def select_subject_error_displayed?
-    text_includes(INVALID_SUBJECT, INVALID)
+    wait_for(10) {text_includes?(INVALID_SUBJECT, INVALID)}
   end
 
   def invalid_email_displayed?
-    text_includes(INVALID_EMAIL, INVALID)
+    wait_for(10) {text_includes?(INVALID_EMAIL, INVALID)}
   end
 
   def blank_message_error_displayed?
-    text_includes(INVALID_MESSAGE, INVALID)
+    wait_for(10) {text_includes?(INVALID_MESSAGE, INVALID)}
   end
 
 end
